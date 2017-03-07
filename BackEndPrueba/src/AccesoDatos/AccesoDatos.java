@@ -49,9 +49,4 @@ public class AccesoDatos {
         ResultSet rs = db.executeQuery(sql);
         return rs;        
     }
-//    public int updateData(String ){
-//        
-//    }
-
-    
 }
