@@ -17,13 +17,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <form class="form-signin">
+                    <form class="form-signin" action="Servlet" method="GET">
                         <h2 style="text-align: center">Gestión Académica</h2>
                         <label for="id" class="sr-only">Identificación</label>
-                        <input type="text" id="id" class="form-control" placeholder="Identificación" required autofocus><br>
+                        <input type="text" id="id" name="id" class="form-control" placeholder="Identificación" required autofocus><br>
                         <label for="password" class="sr-only">Contraseña</label>
-                        <input type="password" id="password" class="form-control" placeholder="Contraseña" required><br>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required><br>
+                        <input name="action" class="btn btn-lg btn-primary btn-block" type="submit" value="Ingresar">
                     </form>
                 </div>
             </div>        

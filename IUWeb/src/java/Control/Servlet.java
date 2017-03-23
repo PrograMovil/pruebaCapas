@@ -34,33 +34,49 @@ public class Servlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String codigo = request.getParameter("codigo");
-        String nombre = request.getParameter("nombre");
-        String titulo = request.getParameter("titulo");
+//        Define cual es la accion que se va a realizar
+        String accion = request.getParameter("action");
+        String id = request.getParameter("id");
         Control ctrl = new Control();
-        
-        try (PrintWriter out = response.getWriter()) {
-//            Carrera car = ctrl.getCarrera(codigo);
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Servlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            if(ctrl.addCarreraServlet(codigo, nombre, titulo) == 1){
-                out.println("<h1>Carrera: AGREGADA</h1>");
-            }else{
-                out.println("<h1>Carrera: ERROR!</h1>");
-            }            
-//            out.println("<p>Lista de carreras<p>");
-//            out.println("<h1>Carrera: " + codigo + "</h1>");
-//            out.println("<h1>Carrera: " + car.getNombre() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        try{
+            switch (accion) {
+                case "Ingresar": {
+                    if(ctrl.getUsuario(id) == 1){
+                        response.sendRedirect("home.jsp");
+                    }else{
+                        response.sendRedirect("login.jsp");
+                    }
+
+                }
+            }
         }catch (Exception ex) {
             Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+    
+        
+//        try (PrintWriter out = response.getWriter()) {
+//            Carrera car = ctrl.getCarrera(codigo);
+            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet Servlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            if(ctrl.addCarreraServlet(codigo, nombre, titulo) == 1){
+//                out.println("<h1>Carrera: AGREGADA</h1>");
+//            }else{
+//                out.println("<h1>Carrera: ERROR!</h1>");
+//            }            
+//            out.println("<p>Lista de carreras<p>");
+//            out.println("<h1>Carrera: " + codigo + "</h1>");
+//            out.println("<h1>Carrera: " + car.getNombre() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }catch (Exception ex) {
+//            Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
     }
 

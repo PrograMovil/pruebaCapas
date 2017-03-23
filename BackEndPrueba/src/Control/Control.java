@@ -6,6 +6,7 @@
 package Control;
 
 import AccesoDatos.Carreras;
+import AccesoDatos.Usuarios;
 import LogicaNegocio.Carrera;
 
 /**
@@ -14,15 +15,14 @@ import LogicaNegocio.Carrera;
  */
 public class Control {
     Carreras carreras;
+    Usuarios usuarios;
 
     public Control() {
         System.out.println("Creando Control Back");
         this.carreras = new Carreras();
+        this.usuarios = new Usuarios();
     }
     
-    public void saludaControl(){
-        System.out.println("Hola desde Control");
-    }
     
     public int addCarrera(Carrera ca){
         return this.carreras.addCarrera(ca);
@@ -43,6 +43,14 @@ public class Control {
     public int addCarreraServlet(String codigo, String nombre, String titulo){
         Carrera c = new Carrera(codigo,nombre,titulo);
         if(this.addCarrera(c) == 1){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+    
+    public int getUsuario(String id) throws Exception{
+        if(this.usuarios.getUsuario(id) != null){
             return 1;
         }else{
             return 0;
