@@ -19,8 +19,7 @@ import java.util.logging.Logger;
  */
 public class Database {
     Connection cnx = null;
-    
-    
+        
     public Database() {
         System.out.println("Hola desde Database");
         this.getConnection();
@@ -31,20 +30,9 @@ public class Database {
         }
         
     }
-    
-//    public Database(String servidorArg, String usuarioArg, String claveArg){
-//        if (servidorArg!=null){
-//            cnx=this.getConnection(servidorArg, usuarioArg, claveArg);
-//        }
-//        else{
-//            cnx=this.getConnection(null, null, null);            
-//        }
-//    }
-    
+       
     public Connection getConnection(){
         try{
-            
-//            "jdbc:mysql://localhost:3306/pruebacapas";
             String servidor = PROTOCOLO+"//"+SERVIDOR+":"+PUERTO+"/"+BASEDATOS;
             System.out.println("El servidor es: "+servidor);
             String user = USUARIO;
@@ -63,21 +51,8 @@ public class Database {
             System.err.println(e.getMessage());
             this.cnx = null;
         }finally {
-//            System.out.println(this.cnx.toString());
             return this.cnx;
         }
-//        try {
-//            String servidor=(servidorArg==null?SERVIDOR:servidorArg);
-//            String usuario=(usuarioArg==null?USUARIO:usuarioArg);
-//            String clave=(claveArg==null?CLAVE:claveArg);
-//            String URL_conexion=PROTOCOLO+"//"+ servidor+":"+PUERTO+"/"+BASEDATOS+"?user="+usuario+"&password="+clave;
-//            Class.forName(MANEJADOR_DB).newInstance();
-//            return DriverManager.getConnection(URL_conexion);
-//        } catch (Exception e) {
-//            System.err.println(e.getMessage());
-//            System.exit(-1);
-//        } 
-//        return null;
     }
     
     public int executeUpdate(String statement) {
