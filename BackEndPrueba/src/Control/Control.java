@@ -16,7 +16,12 @@ public class Control {
     Carreras carreras;
 
     public Control() {
+        System.out.println("Creando Control Back");
         this.carreras = new Carreras();
+    }
+    
+    public void saludaControl(){
+        System.out.println("Hola desde Control");
     }
     
     public int addCarrera(Carrera ca){
@@ -34,4 +39,15 @@ public class Control {
     public Carrera getCarrera(String id) throws Exception{
         return this.carreras.getCarrera(id);
     }
+    
+    public int addCarreraServlet(String codigo, String nombre, String titulo){
+        Carrera c = new Carrera(codigo,nombre,titulo);
+        if(this.addCarrera(c) == 1){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+    
+    
 }

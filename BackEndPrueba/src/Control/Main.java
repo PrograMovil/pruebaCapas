@@ -75,7 +75,7 @@ public class Main {
 
         
 //        Sockets para la conexion con las interfaces.
-        Server servidor = new Server();
+//        Server servidor = new Server();
         
 
      

@@ -55,3 +55,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/windows,netbeans,java
+/BackEnd/nbproject/private/
+/WebUI/nbproject/private/
+/Web/nbproject/private/
+/IUWeb/nbproject/private/

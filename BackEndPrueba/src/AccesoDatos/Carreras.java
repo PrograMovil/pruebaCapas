@@ -14,6 +14,10 @@ import java.sql.SQLException;
  * @author SheshoVega
  */
 public class Carreras extends AccesoDatos {
+
+    public Carreras() {
+        System.out.println("Hola desde Carreras");
+    }
     
     public int addCarrera(Carrera c){
         String tableAndParams = "Carreras(codigo,nombre,titulo)";
